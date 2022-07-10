@@ -1,5 +1,6 @@
 Program T01ANDREALEX_JOAOSANTOS ;
-
+		   // André Alex Jankoski
+		   // João Vitor Araújo dos Santos
 
 	var diaAtual,mesAtual,anoAtual,diaNasc,mesNasc,anoNasc,diferencaDias,diferencaMeses,diferencaAnos,diferencaMesAtual:integer; 
 
