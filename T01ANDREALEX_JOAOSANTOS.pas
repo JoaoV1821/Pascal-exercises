@@ -1,54 +1,53 @@
 Program T01ANDREALEX_JOAOSANTOS ;
 
 
-	var a,b,c,d,e,f,g,h,i,j:integer; 
+	var diaAtual,mesAtual,anoAtual,diaNasc,mesNasc,anoNasc,diferencaDias,diferencaMeses,diferencaAnos,diferencaMesAtual:integer; 
 
 
 Begin
 
-	Writeln('Insira o dia de hoje '); 
-	Readln(a);
-	Write('Insira o mês atual ')  ; Read(b);
-	Write('Insira o ano atual ')  ; Read(c);
+	Write('Insira o dia de hoje '); Read(diaAtual);
+	Write('Insira o mês atual ')  ; Read(mesAtual);
+	Write('Insira o ano atual ')  ; Read(anoAtual);
 
-	Write('Insira o dia do seu nascimento '); Read(d);
-	Write('Insira o mês do seu nascimento '); Read(e);
-	Write('Insira o ano do seu nascimento '); Read(f);
+	Write('Insira o dia do seu nascimento '); Read(diaNasc);
+	Write('Insira o mês do seu nascimento '); Read(mesNasc);
+	Write('Insira o ano do seu nascimento '); Read(anoNasc);
 	
 
-	Begin//1
+	Begin //1
 	
-	  g:=a-d; //  G diferen?a de dias
-	  h:=b-e; //  H diferen?a de meses
-		i:=c-f; //  I diferen?a de anos
+	  diferencaDias := diaAtual - diaNasc; 
+	  diferencaMeses:= mesAtual - mesNasc; 
+		diferencaAnos := anoAtual - anoNasc; 
 		
-		if  (c mod 4 = 0)  and (c mod 100 <> 0) or (c mod 400 = 0) then
-			  g := g + 1;
+		if  (anoAtual mod 4 = 0)  and (anoAtual mod 100 <> 0) or (anoAtual mod 400 = 0) then
+			  diferencaDias := diferencaDias + 1;
 		
 	End;//1
 	
 	Begin//2
 		    
-			If (g<0) Then
+			If (diferencaDias<0) Then // teste do mes anterior
 
 	  			Begin//3
-	  				j:=b-1;                                         // teste do mes anterior
-				  	If (j=4) or (j=6) or (j=9) or (j=11) Then
+	  				diferencaMesAtual:= mesAtual-1;  
+				  	If (diferencaMesAtual=4) or (diferencaMesAtual=6) or (diferencaMesAtual=9) or (diferencaMesAtual=11) Then
 					 		Begin 
-					 			g:=g+30;
-					 			h:=h-1
+					 			diferencaDias:= diferencaDias+30;
+					 			diferencaMeses:=diferencaMeses-1
 					 		End
 						Else
-							If (j=2) Then                      // fevereiro (sem contar bissexto)
+							If (diferencaMesAtual=2) Then  // fevereiro (sem contar bissexto)
 								Begin
-									g:=g+28;
-									h:=h-1;
+									diferencaDias :=  diferencaDias+28;
+									diferencaMeses:= diferencaMeses-1;
 								End
 							Else
 							
 						Begin
-							g:=g+31;
-							h:=h-1;
+							diferencaDias := diferencaDias+31;
+							diferencaMeses:= diferencaMeses-1;
 						End;
 						
 						
@@ -58,13 +57,13 @@ Begin
 	End;//2
 	
 
-			If h<0 Then
+			If diferencaMeses<0 Then
 				Begin
-		 			i:=i-1;
-		 			h:=h+12;
+		 			diferencaAnos:=diferencaAnos-1;
+		 			diferencaMeses:=diferencaMeses+12;
 				End;
 				  
-	Writeln( i:2,' anos ',h:2, ' meses ', g:2, ' dias mais perto de sua morte');
+	Writeln( diferencaAnos:2,' anos ',diferencaMeses:2, ' meses ', diferencaDias:2, ' dias mais perto de sua morte');
 	Writeln('Enter para morrer');
 	Readln;
 	
