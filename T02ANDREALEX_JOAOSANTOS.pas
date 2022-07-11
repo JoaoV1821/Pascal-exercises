@@ -72,7 +72,7 @@ Begin // 1
 		 	
 		end; //5
 		
-	writeln('Média inteira: ', mediaInt:2, 'Média real:', mediaReal:2 );
+	writeln('Média inteira: ', mediaInt:2, 'Média real: ', mediaReal:2 );
 	writeln('Pressione ENTER para sair');
 	readln();
 	
